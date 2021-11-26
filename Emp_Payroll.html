@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="Emp_Payroll.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,7 @@
   <link rel="stylesheet" href="Emp_Payroll.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-
-
+  <script src="employee_payroll_data.js"></script>
 </head>
 
 <body>
@@ -86,21 +86,22 @@
 
       <div class="row-content">
         <label class="label text" for="salary">Choose your salary: </label>
-        <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100"
-          value="400000" />
+        <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000"
+          required />
         <output class="salary-output" for="salary">400000</output>
       </div>
 
       <!-- UC 5 -->
       <div class="row-content">
         <label class="label text" for="startDate">Start Date</label>
-        <input class="input" type="date" placeholder="Enter date and time" id="party" name="bday" />
+        <input class="input" type="date" placeholder="Enter date and time" id="party" name="bday" required />
       </div>
 
       <!-- UC 6 -->
       <div class="row-content">
         <label class="label text" for="notes">Notes</label>
-        <textarea class="input" name="Notes" id="notes" placeholder="" style="height: 100px"></textarea>
+        <textarea class="input" name="Notes" id="notes" placeholder="Write notes here" style="height: 100px"
+          required></textarea>
       </div>
       <div class="buttonParent">
         <a href="./payroll_form.html" class="resetButton button cancelButton">Cancel</a>
@@ -118,7 +119,7 @@
   </div>
 
 
-  <script>
+  <!-- <script>
     //Event listener for salary range
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
@@ -126,7 +127,7 @@
     salary.addEventListener('input', function () {
       output.textContent = salary.value;
     });
-  </script>
+  </script> -->
 
 </body>
 
