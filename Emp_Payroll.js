@@ -41,3 +41,52 @@ window.addEventListener("DOMContentLoaded", (event) => {
     new PersonInfo().start_date = selectedDate.value;
   }
 });
+
+const save = () => {
+  try {
+      let PersonInfo = createPersonInfo();
+  }
+  catch (e) {
+      return;
+  }
+};
+
+
+const createPersonInfo = () => {
+  let PersonInfo = new PersonInfo();
+  try {
+      PersonInfo.name = getInputValueById('#name');
+  } catch (e) {
+      setTextValue('. text-error', e);
+      throw e;
+  }
+  PersonInfo.profilePic = getSelectedValues('[name=profile] ').pop();
+  PersonInfo.gender = getSelectedValues('[name=gender]').pop();
+  PersonInfo.department = getSelectedValues('[name = department]');
+  PersonInfo.salary = getInputValueById('#salary'); 
+  PersonInfo.note = getInputValueById( '#notes');
+  
+  let date = getInputValueById('#day') + " " + getInputValueById('#month') + " "+ getInputValueById('#year');
+      PersonInfo.date =Date.parse(date); 
+      alert(PersonInfo.toString());
+      return PersonInfo;
+  }
+
+
+  // 1: querySelector is the newer feature.
+  // 2: The querySelector method can be used when selecting by element name,nesting or class name. 
+  // 3: querySelector lets you find elements with rules that can't be
+  // expressed with getElementById 
+  
+  const getInputValueById= (id) => {
+       let value= document.querySelector(id).value;
+      return value;
+  }
+  
+  // 1: getElementById is better supported than querySelector in older versions of the browsers. 
+  // 2: The thing with getElementById is that it only allows to select an element by its id.
+  
+  const getInputElementValue = (id) => {
+      let value= document.getElementById(id).value;
+      return value;
+  }    
