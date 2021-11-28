@@ -90,3 +90,16 @@ const createPersonInfo = () => {
       let value= document.getElementById(id).value;
       return value;
   }    
+
+  // save to local storage
+  function createAndUpdateStorage (PersonInfo) {
+    let employeePayrollList =JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    
+    if(employeePayrollList != undefined){
+                employeePayrollList.push(PersonInfo);
+    } else{
+            employeePayrollList = [PersonInfo]
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem ("EmployeePayrollList", JSON.stringify (employeePayrollList))
+}
